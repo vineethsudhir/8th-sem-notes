@@ -1,0 +1,897 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Business Intelligence Concepts and Application</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="89ea7baa-327a-4aed-96b8-7d6a7dbbe4dc" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_4.png" style="object-position:center 90%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">3️⃣</span></div><h1 class="page-title">Business Intelligence Concepts and Application</h1></header><div class="page-body"><h3 id="42e83865-a2f0-43db-90aa-5c47d84ab614" class=""><mark class="highlight-pink">Syllabus: Business Intelligence Concepts and Application: Data Warehousing, Data Mining, Data Visualization</mark></h3><hr id="5f1157d8-f29c-4be7-82e9-aa0048a28035"/><ul id="6e22ebda-06c5-48d6-8db3-44a35041a671" class="toggle"><li><details open=""><summary>Business Intelligence</summary><ul id="fdb4d176-e4b2-449b-8642-f81ea8ab9839" class="toggle"><li><details open=""><summary>Business intelligence cycle</summary><figure id="216f1dc9-490c-48c9-bd95-bb1ee7440015" class="image"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Untitled.png"><img style="width:773px" src="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Untitled.png"/></a></figure></details></li></ul><ul id="e844eb17-9e76-487a-aeae-a5d029eb26af" class="toggle"><li><details open=""><summary>BI For better decisions</summary><ul id="6a0a3760-6bd6-41ea-a75d-059affbb24d9" class="bulleted-list"><li>The goal is to make effective decisions, while
+reducing risk.</li></ul><ul id="7109c574-f702-4d2f-a200-0df16c64afd4" class="bulleted-list"><li>Businesses calculate risks and make decisions
+based on a broad set of facts and insights.</li></ul><ul id="ba683f63-9dd2-4599-8c9f-9f66621025f2" class="bulleted-list"><li>Reliable knowledge about the future can help
+managers make the right decisions with lower
+levels of risk.</li></ul><ul id="eaae5f4e-31d4-46bd-bfa1-b1d9c137b80e" class="bulleted-list"><li>The speed of action has risen exponentially with the growth of
+the Internet.</li></ul><ul id="ab9d05a5-df30-441f-934e-ff26141c729f" class="bulleted-list"><li>In a hypercompetitive world, the speed of a decision and the
+consequent action can be a key advantage.</li></ul><ul id="f17744ff-ff8b-4faf-a9e8-7d5fe4f403a6" class="bulleted-list"><li>The Internet and mobile technologies allow decisions to be made anytime, anywhere.</li></ul><ul id="95a077c9-3a3f-4034-8b29-ad7e28373f6c" class="bulleted-list"><li>Ignoring fast-moving changes can threaten the organization’s
+future.</li></ul><ul id="b8bac43b-2069-4285-a2e4-39cc72d93f5d" class="bulleted-list"><li>The speed of action has risen exponentially with the growth of
+the Internet.</li></ul><ul id="eb47e525-5daa-49df-b4f5-6c1716ce3d24" class="bulleted-list"><li>In a hypercompetitive world, the speed of a decision and the
+consequent action can be a key advantage.</li></ul><ul id="8e655ee0-a876-445b-918d-bfc0ac46bf0a" class="bulleted-list"><li>The Internet and mobile technologies allow decisions to be made anytime, anywhere.</li></ul><ul id="8b213d23-d3f7-4da3-bcbf-489c983d9fc7" class="bulleted-list"><li>Ignoring fast-moving changes can threaten the organization’s
+future.</li></ul></details></li></ul><ul id="eb8d6eac-22d5-4e8d-8f2d-827163d57b67" class="toggle"><li><details open=""><summary>Decision types</summary><ul id="8744a1a3-a493-4e92-bf09-d29279b98f42" class="toggle"><li><details open=""><summary>Strategic Decisions</summary><ul id="d8f27e56-ec3a-4b84-8114-42e0b8166228" class="bulleted-list"><li>Ignoring fast-moving changes can threaten the organization’s
+future.</li></ul><ul id="86932900-19f9-4e4b-b9a4-56a6816b0aa7" class="bulleted-list"><li>Ignoring fast-moving changes can threaten the organization’s
+future.</li></ul><ul id="b9285cec-0c0b-4c73-8a7a-8f5307461154" class="bulleted-list"><li>In strategic decision-making, the goal itself may or
+may not be clear, and the same is true for the path to
+reach the goal.</li></ul><ul id="73ef640a-d429-4bfa-bdd4-4e2dcc0a76a3" class="bulleted-list"><li>BI can help with what-if analysis of many possible
+scenarios. BI can also help create new ideas based on
+new patterns found from data mining.</li></ul></details></li></ul><ul id="f26bd37d-4fd5-4988-8f5e-23e160e75105" class="toggle"><li><details open=""><summary>Operational decisions</summary><ul id="836fad4a-829b-4951-b924-1aa314aa4194" class="bulleted-list"><li>Operational decisions are more routine and tactical
+decisions, focused on developing greater efficiency.</li></ul><ul id="7672de43-5b9e-4d69-9999-2d77a8823f7a" class="bulleted-list"><li>Updating an old website with new features will be an
+operational decision.</li></ul><ul id="e8b9f495-5a70-4d8e-9894-6ac60c5393a3" class="bulleted-list"><li>Operational decisions can be made more efficient using an
+analysis of past data.</li></ul><ul id="2e24f843-8179-4f8a-ba72-5b4a47ccf827" class="bulleted-list"><li>A classification system can be created and modeled using
+the data of past instances to develop a good model of the
+domain. This model can help improve operational
+decisions in the future.</li></ul><ul id="be2d3363-3845-4404-80c1-3992beb81702" class="bulleted-list"><li>BI can help automate operations level
+decision-making and improve efficiency by making
+millions of micro level operational decisions in a
+model-driven way.</li></ul></details></li></ul></details></li></ul><ul id="1b07cacc-cf6b-45bd-bfa4-ac12683f9f28" class="toggle"><li><details open=""><summary>BI tools</summary><ul id="76a8e4b7-7d80-4506-9f1a-5d6b0ee170bd" class="bulleted-list"><li>BI tools include data warehousing, online analytical
+processing, social media analytics, reporting, dashboards,
+querying, and data mining.</li></ul><ul id="b133b5eb-7698-4960-b925-132f46834183" class="bulleted-list"><li>A spreadsheet tool, such as Microsoft Excel, can act as an
+easy but effective BI tool by itself.</li></ul><ul id="5e94095c-9442-46f4-b08a-8103a2611d93" class="bulleted-list"><li>Data can be downloaded and stored in the spreadsheet,
+then analyzed to produce insights, then presented in the
+form of graphs and tables.</li></ul><ul id="15063cbc-7e06-4ea3-a331-0a31939fc6cf" class="bulleted-list"><li>This system offers limited automation using macros and
+other features.</li></ul><ul id="cca475f2-be38-4494-973c-784c54b4ccd6" class="bulleted-list"><li>Pivot tables help do sophisticated what-if analysis. Add-on
+modules can be installed to enable moderately
+sophisticated statistical analysis.</li></ul><ul id="96908f5f-4a3d-4b49-a804-263f0480922f" class="bulleted-list"><li>A dash boarding system, such as IBM Cognos or Tableau,
+can offer a sophisticated set of tools for gathering,
+analyzing, and presenting data.</li></ul><ul id="8a6b0117-a11c-47c5-aa87-a86bf32c7382" class="bulleted-list"><li>At the user end, modular dashboards can be designed and
+redesigned easily with a graphical user interface.</li></ul><ul id="b813982e-f74c-4650-89e1-e9d670c933d3" class="bulleted-list"><li>The back-end data analytical capabilities include many
+statistical functions.</li></ul><ul id="a7d8f430-b93e-4e82-b23f-baf54e6bc650" class="bulleted-list"><li>Data mining systems, such as IBM SPSS Modeler, are
+industrial strength systems that provide capabilities to
+apply a wide range of analytical models on large data sets.
+Open source systems, such as Weka, are popular platforms
+designed to help mine large amounts of data to discover
+patterns.</li></ul></details></li></ul><ul id="82b9c3ca-6345-4648-8d77-e6a57078dbc7" class="toggle"><li><details open=""><summary>BI skills</summary><ul id="bb803529-b0f0-46d8-b79c-4a98fcacdbc6" class="bulleted-list"><li>As data grows and exceeds our capacity to make sense of
+it, the tools need to evolve, and so should the imagination
+of the BI specialist.</li></ul><ul id="339da834-178d-485f-91b7-c2bc9afe25fb" class="bulleted-list"><li>“Data Scientist” has been called as the hottest job of this
+decade.</li></ul><ul id="12e47447-3529-4958-bd19-d2e31d6ccbc8" class="bulleted-list"><li>A skilled and experienced BI specialist should be open
+enough to go outside the box, open the aperture and see a
+wider perspective that includes more dimensions and
+variables, in order to find important patterns and insights.</li></ul><ul id="2cacbb74-094a-44ac-bc31-5633815f1f56" class="bulleted-list"><li>An imaginative solution should be proposed for the
+problem so that interesting and useful results can emerge.</li></ul><ul id="69f054d2-cc36-4612-a21b-5bc6db99c11a" class="bulleted-list"><li>A good data mining project begins with an interesting
+problem to solve. Selecting the right data mining problem
+is an important skill.</li></ul><ul id="4c251621-2dab-47ca-85e0-3cca7b077e32" class="bulleted-list"><li>The problem should be valuable enough that solving it
+would be worth the time and expense.</li></ul><ul id="ea677bf6-e205-421a-ae2b-7250dd55ea5b" class="bulleted-list"><li>It takes a lot of time and energy to gather, organize,
+cleanse, and prepare the data for mining and other
+analysis.</li></ul><ul id="8f383633-5505-46ed-9ca2-4dc0ab716007" class="bulleted-list"><li>The skill level has to be deep enough to engage with the
+data and make it yield new useful insights.</li></ul></details></li></ul><ul id="f9226132-40a9-4552-8285-95cd0a867b5f" class="toggle"><li><details open=""><summary>BI applications</summary><ul id="0c252eba-2662-4de8-ae95-68b3de822be2" class="bulleted-list"><li>BI tools are required in almost all industries and functions.</li></ul><ul id="43ccac80-e7cd-4e6c-9efd-30de1a5835bf" class="bulleted-list"><li>The nature of the information and the speed of action may be different across businesses, but every manager today needs access to BI tools to have up-to-date metrics about business performance.</li></ul><ul id="f7b3610b-38f1-477f-95f7-4921dce480d1" class="bulleted-list"><li>Businesses need to embed new insights into their operating processes to ensure that their activities continue to evolve with more efficient practices.</li></ul><ul id="312c902c-bd33-4bb6-85f2-4af3a70b5cee" class="toggle"><li><details open=""><summary>Customer Relationship Management.</summary><ol id="4195788c-c225-4ddf-977e-5d44fdd505a6" class="numbered-list" start="1"><li>Maximize the return on marketing campaigns:</li></ol><ol id="e57f936f-dcf8-44ef-9151-df6ef4dde9aa" class="numbered-list" start="2"><li>Improve customer retention</li></ol><ol id="563a1133-ad7f-4eb6-8fb9-a2db8c5dca8a" class="numbered-list" start="3"><li>Maximize customer value</li></ol><ol id="d411d6f4-9d36-4377-9408-541552d6e17b" class="numbered-list" start="4"><li>Identify and delight highly-valued customers:</li></ol><ol id="5efaea33-d251-4980-acb5-89ba299377f6" class="numbered-list" start="5"><li>Manage brand image</li></ol></details></li></ul><ul id="4675bf46-a23c-43ef-a6e2-5f4bb4409bd4" class="toggle"><li><details open=""><summary>Healthcare and Wellness</summary><ol id="c67706b2-82de-4b90-b1c1-0443d1446f16" class="numbered-list" start="1"><li>Diagnose disease in patients</li></ol><ol id="ded49e3d-2889-4473-a102-16433481ccf4" class="numbered-list" start="2"><li>Treatment effectiveness</li></ol><ol id="f52e777a-e74d-4567-b748-7224e6cb419b" class="numbered-list" start="3"><li>Wellness management</li></ol><ol id="412cef98-e9d3-4eb0-b0e6-a4b2baf0d3e7" class="numbered-list" start="4"><li>Manage fraud and abuse</li></ol><ol id="0b37ac38-6388-4239-b4ba-c133dd93e805" class="numbered-list" start="5"><li>Public health management</li></ol></details></li></ul><ul id="f2bf3475-a452-47bf-9bb8-e998d76000f3" class="toggle"><li><details open=""><summary>Education</summary><ol id="afb66953-57ff-4b41-8612-aa82057e696a" class="numbered-list" start="1"><li>Student Enrolment</li></ol><ol id="c4f0e4ee-e276-4c36-9d86-3d8123556d1d" class="numbered-list" start="2"><li>Course offerings</li></ol><ol id="7a46f40f-0cb1-448d-9a7a-b8edde768224" class="numbered-list" start="3"><li>Fund-raising from Alumni and other donors</li></ol></details></li></ul><ul id="d6e6bb4b-8353-41dd-ada3-d136eef2e040" class="toggle"><li><details open=""><summary>Retail</summary><ol id="3c548bed-65dc-4d27-b7b3-d0814e99f3d5" class="numbered-list" start="1"><li>Optimize inventory levels at different locations</li></ol><ol id="b72ef419-e1d1-4c97-953f-07fab1d7f8d5" class="numbered-list" start="2"><li>Improve store layout and sales promotions</li></ol><ol id="99497f1d-a7be-4373-8725-52a7c5b259c0" class="numbered-list" start="3"><li>Optimize logistics for seasonal effects</li></ol><ol id="4b52a5f8-2d32-4008-9a2b-a4868df12831" class="numbered-list" start="4"><li>Minimize losses due to limited shelf life</li></ol></details></li></ul><ul id="ed4ba3b2-5152-4cab-9583-a33d556cba07" class="toggle"><li><details open=""><summary>Banking</summary><ol id="b303c43c-5f29-4bba-a4f7-9ee02d92482a" class="numbered-list" start="1"><li>Automate the loan application process</li></ol><ol id="037ea7c0-6ea7-4bec-9546-76a809e958f4" class="numbered-list" start="2"><li>Detect fraudulent transactions</li></ol><ol id="c999aae2-780e-48c6-ab11-581863b9667f" class="numbered-list" start="3"><li>Maximize customer value</li></ol><ol id="891cd499-c627-45ea-808c-e362c0effb10" class="numbered-list" start="4"><li>Optimize cash reserves through forecasting</li></ol></details></li></ul><ul id="ec0fdc94-c455-4c9f-a32a-1faf7b8e6ff6" class="toggle"><li><details open=""><summary>Financial Services</summary><ol id="1d5a884b-57ee-443c-9cc0-34a8abbd17d8" class="numbered-list" start="1"><li>Predict changes in bond and stock prices</li></ol><ol id="3482c403-a8fc-4311-b307-098209e4a9ef" class="numbered-list" start="2"><li>Assess the effect of events on market movements</li></ol><ol id="f0ee685f-2336-4ca8-ba41-99b02860c022" class="numbered-list" start="3"><li>Identify and prevent fraudulent activities in trading</li></ol></details></li></ul><ul id="0d508ad2-53b4-43f1-8520-425e2601ccd1" class="toggle"><li><details open=""><summary>Insurance</summary><ol id="5f56e89a-d4d5-4ad3-9820-d185ed92b729" class="numbered-list" start="1"><li>Forecast claim costs for better business planning</li></ol><ol id="2cd00490-c2e2-45d9-9ab7-5f2a83561250" class="numbered-list" start="2"><li>Determine optimal rate plans</li></ol><ol id="05eeb092-c224-4555-ac6f-4461ab384384" class="numbered-list" start="3"><li>Optimize marketing to specific customers</li></ol><ol id="12fba39e-16ce-4c8e-bd8f-90190f873cbd" class="numbered-list" start="4"><li>Identify and prevent fraudulent claim activities</li></ol></details></li></ul><ul id="456dde48-e14c-43cf-973d-b3f3cd67af4f" class="toggle"><li><details open=""><summary>Manufacturing</summary><ol id="e0611adb-2f20-4763-b33a-1758d2947452" class="numbered-list" start="1"><li>Discover novel patterns to improve product quality</li></ol><ol id="c40ff8d6-1389-4ee5-bb32-9f0abf00a8f0" class="numbered-list" start="2"><li>Predict/prevent machinery failures</li></ol></details></li></ul><ul id="6c273e56-ffdd-4606-9a7d-efae48856b97" class="toggle"><li><details open=""><summary>Telecom</summary><ol id="fb94d994-05a4-4a71-9910-ee3ef826e4fc" class="numbered-list" start="1"><li>Churn management</li></ol><ol id="34e288b5-ebea-4746-aeda-8435801da11e" class="numbered-list" start="2"><li>Marketing and product creation</li></ol><ol id="5afbc5ea-01d7-4019-be5f-7b139b0be059" class="numbered-list" start="3"><li>Network failure management</li></ol><ol id="49ae3291-2043-4ace-9a28-0cca03349fec" class="numbered-list" start="4"><li>Fraud Management</li></ol></details></li></ul><ul id="66d6ed43-8864-4320-a8ac-6c61b8686957" class="toggle"><li><details open=""><summary>Public Sector</summary><ol id="33004678-4194-4bf7-b38d-442641a322f4" class="numbered-list" start="1"><li>Law enforcement</li></ol><ol id="33cfda7a-8773-48c3-99dd-65f9b3270a60" class="numbered-list" start="2"><li>Scientific research</li></ol></details></li></ul></details></li></ul></details></li></ul><ul id="d76f91bf-f4c9-4e70-8f1a-54c583db3545" class="toggle"><li><details open=""><summary>Data Warehousing</summary><ul id="a49b99fc-9083-471f-bd41-6b262ec08b32" class="toggle"><li><details open=""><summary>Design Consideration for data warehousing</summary><div id="0744cc1b-3689-4e7a-a3b3-a778174dbdd6" class="collection-content"><h4 class="collection-title">Design Consideration for data warehousing</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Description</th></tr></thead><tbody><tr id="c791100d-70e0-424d-94dd-16b00f79984b"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Subject%20oriented%20c791100d70e0424d94dd16b00f79984b.html">Subject oriented</a></td><td class="cell-/!1U">To be effective, a DW should be
+designed around a subject domain, i.e. to help solve a
+certain category of problems.</td></tr><tr id="dad630fa-8d79-4d44-a47a-a476c7d50677"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Integrated%20dad630fa8d794d44a47aa476c7d50677.html">Integrated</a></td><td class="cell-/!1U">The DW should include data from many
+functions that can shed light on a particular subject area.
+Thus the organization can benefit from a comprehensive
+view of the subject area.</td></tr><tr id="d0f2a3e0-c389-4cba-a1fc-98eb4c16f22c"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Time-variant%20d0f2a3e0c3894cbaa1fc98eb4c16f22c.html">Time-variant</a></td><td class="cell-/!1U">The data in DW should grow
+at daily or other chosen intervals. That allows latest
+comparisons over time.</td></tr><tr id="a88bbc6b-20e9-4317-9391-a8fb26220485"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Nonvolatile%20a88bbc6b20e943179391a8fb26220485.html">Nonvolatile</a></td><td class="cell-/!1U">DW should be persistent, that is, it should
+not be created on the fly from the operations databases.</td></tr><tr id="8cb7d020-d457-44d5-b148-16517d7534a9"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Summarized%60%208cb7d020d45744d5b14816517d7534a9.html">Summarized`</a></td><td class="cell-/!1U">DW contains rolled-up data at the right
+level for queries and analysis. The process of rolling up
+the data helps create consistent granularity for effective
+comparisons.</td></tr><tr id="6e01daa8-c526-4858-91e3-dad3f623fe61"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Not%20normalized%206e01daa8c526485891e3dad3f623fe61.html">Not normalized</a></td><td class="cell-/!1U">DW often uses a star schema, which is a
+rectangular central table, surrounded by some look-up
+tables. The single table view significantly enhances speed
+of queries.</td></tr><tr id="2769e078-fc5d-4a41-a188-fea20b7504a9"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Metadata%202769e078fc5d4a41a188fea20b7504a9.html">Metadata</a></td><td class="cell-/!1U">Many of the variables in the database are
+computed from other variables in the operational database.</td></tr><tr id="1e41dd4e-1e3c-4e7c-8c33-0e492bf6ccb3"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Design%20Consideration%20for%20data%20warehousing%200744cc1b36894e7aa3b3a778174dbdd6/Near%20Real-time%20and%20or%20right-time%20(active)%201e41dd4e1e3c4e7c8c330e492bf6ccb3.html">Near Real-time and/or right-time (active)</a></td><td class="cell-/!1U">DWs should
+be updated in near real-time in many high transaction
+volume industries, such as airlines.</td></tr></tbody></table></div></details></li></ul><ul id="447964e3-3253-4085-b60a-632bf03b0891" class="toggle"><li><details open=""><summary>Development Approaches</summary><blockquote id="81a9d92d-a59d-4cc0-bd1b-21fd88c54dad" class="">There are two fundamentally different approaches to
+developing DW: top down and bottom up.</blockquote><ol id="358b291e-a986-4d78-85ab-fb84f2360ebe" class="numbered-list" start="1"><li>The top-down approach is to make a comprehensive DW
+that covers all the reporting needs of the enterprise.</li></ol><ol id="afe50ecf-2456-4fd1-b19e-22c4088b1e07" class="numbered-list" start="2"><li>The bottom-up approach is to produce small data marts,
+for the reporting needs of different departments or
+functions, as needed.</li></ol></details></li></ul><ul id="06cc35bf-ab86-4192-8463-88e20cabeb83" class="toggle"><li><details open=""><summary>Architecture</summary><blockquote id="4b4d9225-0e5d-4767-8736-dc8767d746eb" class="">DW has four key elements</blockquote><ol id="7bb8503a-ebfa-4878-9743-24736b9a4bec" class="numbered-list" start="1"><li>The first element is the data sources that provide the raw
+data.</li></ol><ol id="f4b68294-ce01-47ee-a5eb-27acb141049a" class="numbered-list" start="2"><li>The second element is the process of transforming that
+data to meet the decision needs.</li></ol><ol id="295882b0-34c4-4577-9708-681f3ab53a2c" class="numbered-list" start="3"><li>The third element is the methods of regularly and
+accurately loading of that data into EDW or data marts.</li></ol><ol id="8470781f-f24c-40e4-988a-0aa5e896ebbb" class="numbered-list" start="4"><li>The fourth element is the data access and analysis part,
+where devices and applications use the data from DW to
+deliver insights and other benefits to users.</li></ol></details></li></ul><ul id="d2de011b-c5e9-43b3-801f-233bef508997" class="toggle"><li><details open=""><summary>Data Sources</summary><blockquote id="e0f9e420-f76d-497e-8013-f86eff7167b0" class="">Data Warehouses are created from structured data
+sources. Unstructured data such as text data would need to
+be structured before inserted into the DW.</blockquote><ol id="bff91df7-c528-4f65-8453-ec250a3807d0" class="numbered-list" start="1"><li>Operations data</li></ol><ol id="db4594e2-a827-4e04-937b-fae04a90ea0d" class="numbered-list" start="2"><li>Specialized applications</li></ol><ol id="55f78c96-d313-4546-8f0c-69146be0e542" class="numbered-list" start="3"><li>External syndicated data</li></ol></details></li></ul><ul id="8a6e69da-5112-4cf0-a0d4-0ec92c78ae09" class="toggle"><li><details open=""><summary>Data Loading Processes</summary><blockquote id="16f5febf-c396-4829-94e4-56fa8a5840b0" class="">The heart of a useful DW is the processes to populate the DW
+with good quality data. This is called the
+Extract-Transform-Load (ETL) cycle.</blockquote><ol id="a575ec49-507e-4ab9-addc-67b215c9fd2e" class="numbered-list" start="1"><li>Data should be extracted from the operational (transactional)
+database sources, as well as from other applications, on a
+regular basis.</li></ol><ol id="cc34e7b9-f2a1-4738-ba3c-7a7b0911126f" class="numbered-list" start="2"><li>The extracted data should be aligned together by key fields and
+integrated into a single data set. It should be cleansed of any
+irregularities or missing values. It should be rolled-up together
+to the same level of granularity. Desired fields, such as daily
+sales totals, should be computed. The entire data should then be
+brought to the same format as the central table of DW.</li></ol><ol id="8a8da5c8-42d2-452a-b02e-ca92c193c2d4" class="numbered-list" start="3"><li>This transformed data should then be uploaded into the DW.</li></ol></details></li></ul><ul id="4523a1aa-d17f-456b-a22d-9e566bd9a1d8" class="toggle"><li><details open=""><summary>Data Warehouse Design</summary><ol id="2cf7ca81-3485-407e-8aaf-eb05849977f2" class="numbered-list" start="1"><li>Star schema is the preferred data architecture for most
+DWs.</li></ol><ol id="6806099e-9711-4f77-bbb7-cf414ec41103" class="numbered-list" start="2"><li>There is a central fact table that provides most of the
+information of interest.</li></ol><ol id="f049c03a-cb0e-4c45-898d-832dccd53afd" class="numbered-list" start="3"><li>There are lookup tables that provide detailed values for
+codes used in the central table.</li></ol></details></li></ul><ul id="dd4ed13b-7388-4d5e-b45c-f5efbb2c8a52" class="toggle"><li><details open=""><summary>Access</summary><blockquote id="349ab0c3-2297-4116-afab-85e10eed4e28" class="">Data from the DW could be accessed for many purposes,
+by many users, through many devices.</blockquote><ol id="3c5977c1-b0b7-4cbc-8a71-a315fe9cc459" class="numbered-list" start="1"><li>A primary use of DW is to produce routine management
+and monitoring reports.</li></ol><ol id="636f48b1-f8e7-40e4-adcd-e16e44735f1b" class="numbered-list" start="2"><li>The data from the DW could be used for ad-hoc queries
+and any other applications that make use of the internal
+data.</li></ol><ol id="96e20f1c-0267-4c57-95f2-e231d2c96662" class="numbered-list" start="3"><li>Data from DW is used to provide data for mining
+purposes. Parts of the data would be extracted, and then
+combined with other relevant data, for data mining.</li></ol></details></li></ul><ul id="6d2500e9-46d3-48c5-add7-b454bc6630c6" class="toggle"><li><details open=""><summary>Best Practices</summary><blockquote id="0cb6097f-c79b-4902-b125-64dabc16b695" class="">A data warehousing project reflects a significant
+investment into information technology (IT). All of the
+best practices in implementing any IT project should be
+followed.</blockquote><ol id="ac5d2274-85cf-44b9-b9ba-ad9558eea33c" class="numbered-list" start="1"><li>The DW project should align with the corporate strategy</li></ol><ol id="9f3ba57b-197e-44ff-828b-ae2b74543a73" class="numbered-list" start="2"><li>It is important to manage user expectations</li></ol><ol id="78cc570d-94e8-4306-ac5e-1cba29c481d6" class="numbered-list" start="3"><li>Quality and adaptability should be built in from the
+start</li></ol></details></li></ul></details></li></ul><ul id="34fc5381-a8ad-43d6-a6b8-25337d0cf874" class="toggle"><li><details open=""><summary>Data Mining</summary><blockquote id="a329a047-f8d7-43b3-99d3-c8bbd2b8ab35" class="">Data mining is the art and science of discovering
+knowledge, insights, and patterns in data.</blockquote><blockquote id="9109a4e1-5006-4d39-898c-9684633f5877" class="">It is the act of extracting useful patterns from an organized
+collection of data.</blockquote><blockquote id="19f46a87-a91d-461f-bb95-ab63b0974e10" class="">Patterns must be valid, novel, potentially useful, and
+understandable.</blockquote><blockquote id="65f9d1ca-4de0-496b-bb6e-0cd33b61281f" class="">The implicit assumption is that data about the past can
+reveal patterns of activity that can be projected into the
+future.</blockquote><blockquote id="e76f26ee-4670-4bb8-98fc-c0550849ba3d" class="">Data mining is a multidisciplinary field that borrows
+techniques from a variety of fields.</blockquote><ul id="b9609bfc-b946-4788-b0b5-596a1f3ae594" class="toggle"><li><details open=""><summary>Gathering and selecting data</summary><ol id="cc1270d5-ecbe-4d8a-8608-c313815b734f" class="numbered-list" start="1"><li>To learn from data, quality data needs to be effectively
+gathered, cleaned and organized, and then efficiently
+mined.</li></ol><ol id="eb022617-e0ad-4306-888c-30c452c46e95" class="numbered-list" start="2"><li>Most organizations develop an enterprise data model
+(EDM) to organize their data.</li></ol><ol id="65e94739-5fa9-4015-930c-918a66226ac1" class="numbered-list" start="3"><li>The EDM provides the basic menu of data to create a data
+warehouse for a particular decision-making purpose.</li></ol><ol id="a1bc517b-5cc6-4179-9c5e-57c0c78d331f" class="numbered-list" start="4"><li>The EDM can also help imagine what relevant external
+data should be gathered to provide context and develop
+good predictive relationships with the internal data.</li></ol><ol id="526a4584-cc8b-40dc-a3c8-3124d1cfd63a" class="numbered-list" start="5"><li>Gathering and curating data takes time and effort,
+particularly when it is unstructured or semi structured.</li></ol><ol id="5da3d336-97bf-4557-a897-512a91f5b767" class="numbered-list" start="6"><li>Unstructured data can come in many forms like databases,
+blogs, images, videos, audio, and chats.</li></ol><ol id="99ba6c4c-63cf-45bc-81b9-c7f87a8d51b1" class="numbered-list" start="7"><li>There are streams of unstructured social media data from
+blogs, chats, and tweets.</li></ol><ol id="47b80648-39a3-4896-954a-f94404d8178e" class="numbered-list" start="8"><li>There are streams of machine-generated data from
+connected machines, RFID tags, the internet of things, and
+so on.</li></ol><ol id="96f4ee03-1242-4b5e-b19e-fd31140601ca" class="numbered-list" start="9"><li>Eventually the data should be rectangularized, that is, put
+in rectangular data shapes with clear columns and rows,
+before submitting it to data mining.</li></ol></details></li></ul><ul id="8f8a4772-d488-46a2-8fd7-f24b845f3c64" class="toggle"><li><details open=""><summary>Data cleansing and preparation</summary><blockquote id="42a456f1-7a8b-4486-8338-7a791d842b0d" class="">Data cleansing and preparation is a labor-intensive or
+semi-automated activity that can take up to 60-70% of the
+time needed for a data mining project.</blockquote><ol id="3b141a6b-412e-4a31-9ed0-1cc079e7a28a" class="numbered-list" start="1"><li>Duplicate data needs to be removed.</li></ol><ol id="b9dc3f95-5b47-4286-8740-802e9b140c61" class="numbered-list" start="2"><li>Missing values need to be filled in</li></ol><ol id="68902809-fbd0-4139-9977-14c8c60672da" class="numbered-list" start="3"><li>Data elements should be comparable</li></ol><ol id="8225e1fa-4a2c-4b39-9f1f-23ff3276009d" class="numbered-list" start="4"><li>Continuous values may need to be binned</li></ol><ol id="6c5d3538-5bf7-477f-bc52-6067a1c87b9d" class="numbered-list" start="5"><li>Outlier data elements need to be removed</li></ol><ol id="28b3edc0-2afb-4d78-8ed8-b44a8448f6ae" class="numbered-list" start="6"><li>Ensure that the data is representative of the phenomena</li></ol><ol id="ecf7f3bb-77d4-47c2-aff4-f827211e209d" class="numbered-list" start="7"><li>Data may need to be selected to increase information
+density</li></ol></details></li></ul><ul id="f1638d8e-e9b2-4960-9f01-c77d91c22ca5" class="toggle"><li><details open=""><summary>Outputs of Data Mining</summary><ol id="e348ae88-f7ed-468a-9900-fba07b326d1d" class="numbered-list" start="1"><li>One popular form of data mining output is a decision tree.
+A decision tree can be mapped to business rules. If the
+objective function is prediction, then a decision tree or
+business rules are the most appropriate mode of
+representing the output.</li></ol><ol id="e491de40-1dc2-46fd-8ca0-5a8002951750" class="numbered-list" start="2"><li>The output can be in the form of a regression equation or
+mathematical function that represents the best fitting
+curve to represent the data. Regression equations are a
+good way of representing the output of classification
+exercises. These are also a good representation of
+forecasting formulae.</li></ol></details></li></ul><ul id="2f2dbb6d-70c8-4aba-877a-e7e303200e17" class="block-color-red_background toggle"><li><details open=""><summary>Evaluating Data Mining Results</summary></details></li></ul><ul id="ddf95476-9a75-4b15-8445-7fe13f2c572e" class="toggle"><li><details open=""><summary>Data Mining Techniques</summary><blockquote id="f921a8ae-fb31-4abf-a84f-67aa71c21eff" class="">Data may be mined to help make more efficient decisions
+in the future. Or it may be used to explore the data to find
+interesting associative patterns.</blockquote><blockquote id="8ee03a03-c12d-4189-9253-ef2a864fccb5" class="">The most important class of problems solved using data
+mining are classification problems.</blockquote><blockquote id="ea248e0d-99f1-4c59-9528-7d329518de8c" class="">Classification techniques are called supervised learning as
+there is a way to supervise whether the model is providing
+the right or wrong answers.</blockquote><blockquote id="33c46a28-d821-438c-8b08-62c7c96a20ed" class="">These are problems where data from past decisions is
+mined to extract the few rules and patterns that would
+improve the accuracy of the decision making process in
+the future.</blockquote><ul id="6b92e812-7e94-4a0b-984c-d491f6ac42f4" class="toggle"><li><details open=""><summary>DECISION TREES</summary><ul id="d797f89c-2d73-4902-8975-6b4fcb2c632c" class="bulleted-list"><li>Decision trees are easy to understand and easy to use, by
+analysts as well as executives. They also show a high
+predictive accuracy.</li></ul><ul id="97e14c4a-9576-4eec-a7c4-e39f70c21d44" class="bulleted-list"><li>Decision trees select the most relevant variables
+automatically out of all the available variables for decision
+making.</li></ul><ul id="a6b65679-96f7-4f48-a76b-d744d8bdaac6" class="bulleted-list"><li>Decision trees are tolerant of data quality issues and do
+not require much data preparation from the users.</li></ul><ul id="11031217-36fa-40d1-9117-1ccb77a55de6" class="bulleted-list"><li>Even non-linear relationships can be handled well by
+decision trees.</li></ul><ul id="990958cb-624f-4085-af19-48baf5a40a26" class="toggle"><li><details open=""><summary>There are many algorithms to implement decision trees.
+Some of the popular ones are:</summary><ul id="3e7b964f-5af5-4ab5-90d4-8c90c3872fbb" class="bulleted-list"><li>C5 ( Improved version of C4.5 ( Improved version of</li></ul><ul id="36211079-d32b-4d12-a62a-01346dabdd52" class="bulleted-list"><li>Iterative Dichotomiser-3 (ID3) Algorithm)</li></ul><ul id="418a7374-0a05-43b8-9d07-be43e89660bc" class="bulleted-list"><li>CART ( Classification and Regression Tree)</li></ul><ul id="4c5371e7-6587-4633-b899-537a4f90a162" class="bulleted-list"><li>CHAID(Chi-Square Automatic Interaction Detector)</li></ul></details></li></ul><p id="f21cb7d3-3184-4a80-9fa9-1dfce184f056" class="">
+</p></details></li></ul><ul id="a3c9fed5-092e-47b2-b7b3-4141bcbba80d" class="toggle"><li><details open=""><summary>REGRESSION</summary><ul id="be0896f8-8684-4bfa-8013-3791a0cc77c9" class="bulleted-list"><li>Regression is a data mining technique used to predict a
+range of numeric values (also called continuous values),
+given a particular dataset.</li></ul><ul id="acf5169a-1071-49fc-a81c-61f9564ef907" class="bulleted-list"><li>The goal of regression is to derive a smooth well-defined
+curve to best fits the data.</li></ul><ul id="4540d783-bf2b-4384-a36a-b8ad02ecd204" class="bulleted-list"><li>Regression analysis techniques, for example, can be used
+to model and predict the energy consumption as a function
+of daily temperature.</li></ul><ul id="48550927-8bfe-41e5-bcfb-75ff7c8b5a0c" class="bulleted-list"><li>The accuracy of the regression model depends entirely
+upon the dataset used and not at all on the algorithm or
+tools used.</li></ul></details></li></ul><ul id="c6d34cef-4c0a-49a8-aaf3-d627eb604686" class="toggle"><li><details open=""><summary>ARTIFICIAL NEURAL NETWORKS</summary><ul id="f731136b-082d-481d-8eaf-582b2baf22d8" class="bulleted-list"><li>Artificial Neural Networks (ANN) is a sophisticated data
+mining technique from the Artificial Intelligence stream in
+Computer Science.</li></ul><ul id="fcb44cbe-c51c-4e8c-ba2b-19ff2ef6da24" class="bulleted-list"><li>It mimics the behavior of human neural structure: Neurons
+receive stimuli, process them, and communicate their
+results to other neurons successively, and eventually a
+neuron outputs a decision.</li></ul><ul id="72682851-d73b-4433-bb75-4134ea8d5534" class="bulleted-list"><li>A decision task may be processed by just one neuron and
+the result may be communicated soon. Alternatively, there
+could be many layers of neurons involved in a decision
+task, depending upon the complexity of the domain.</li></ul><ul id="10dbbb63-e521-4135-955e-1d8fa817fd31" class="bulleted-list"><li>The neural network can be trained by making a decision
+over and over again with many data points. It will
+continue to learn by adjusting its internal computation and
+communication parameters based on feedback received on
+its previous decisions.</li></ul><ul id="47b5bb0c-ebe1-4cac-bcf9-6ba565d09cc0" class="bulleted-list"><li>The intermediate values passed within the layers of
+neurons may not make any intuitive sense to an observer.
+Thus, the neural networks are considered a black-box
+system.</li></ul><ul id="736058ed-b89c-456a-a507-5b7619cc9d75" class="bulleted-list"><li>ANNs are popular because they are eventually able to
+reach a high predictive accuracy.</li></ul></details></li></ul><ul id="d1798458-c1d9-4bb6-a1ab-bcae3f2b1de0" class="toggle"><li><details open=""><summary>CLUSTER ANALYSIS</summary><ul id="1fd774e1-d1d5-4a21-902a-bab4ee456740" class="bulleted-list"><li>Cluster Analysis is an exploratory learning technique that
+helps in identifying a set of similar groups in the data.</li></ul><ul id="c8705711-67da-43b2-ab05-3d3761859ef5" class="bulleted-list"><li>It is a technique used for automatic identification of
+natural groupings of things.</li></ul><ul id="23ada252-2fd1-4d39-ba5e-5e1aba332d3e" class="bulleted-list"><li>Data instances that are similar to (or near) each other are
+categorized into one cluster, while data instances that are
+very different (or far away) from each other are
+categorized into separate clusters.</li></ul><ul id="f4f20337-bb97-4f78-ac1f-a7c02705a7c6" class="bulleted-list"><li>The K-means technique is a popular technique and allows
+the user guidance in selecting the right number (K) of
+clusters from the data.</li></ul><ul id="a785d6f1-59ad-4fbb-87b8-8e188716bf55" class="bulleted-list"><li>Clustering is also known as the segmentation technique. It
+helps divide and conquer large data sets.</li></ul><ul id="5ffe7d30-9c76-4865-abc7-a71121412bec" class="bulleted-list"><li>The technique shows the clusters of things from past data.
+The output is the centroids for each cluster and the
+allocation of data points to their cluster.</li></ul><ul id="853350dc-5503-4d2d-8afc-2bf22ebace07" class="bulleted-list"><li>The centroid definition is used to assign new data
+instances can be assigned to their cluster homes.
+Clustering is also a part of the artificial intelligence family
+of techniques.</li></ul></details></li></ul><ul id="b1d5a80d-8115-45b2-89ed-fdd8ea143590" class="toggle"><li><details open=""><summary>ASSOCIATION RULES</summary><ul id="4268daf3-b226-4796-b73d-360a38f4edeb" class="bulleted-list"><li>Association rules are a popular data mining method in
+business, especially where selling is involved. Also known
+as market basket analysis, it helps in answering questions
+about cross-selling opportunities.</li></ul><ul id="5fe0b3a3-019d-444b-9ce4-f2ec0dfb0c8e" class="bulleted-list"><li>This is the heart of the personalization engine used by
+ecommerce sites like <a href="http://amazon.com/">Amazon.com</a> and streaming movie
+sites like <a href="http://netflix.com/">Netflix.com</a>.</li></ul><ul id="567de589-9fd1-495e-b2e6-98d9f9ea97fc" class="bulleted-list"><li>The technique helps find interesting relationships
+(affinities) between variables (items or events). These are
+represented as rules of the form X ® Y, where X and Y
+are sets of data items.</li></ul></details></li></ul></details></li></ul><ul id="e2eda81a-6bdc-4846-84fa-a45a26600da0" class="toggle"><li><details open=""><summary>Tools and Platforms for Data Mining</summary><div id="ee53854d-c873-4981-99de-b6c0c31a4a59" class="collection-content"><h4 class="collection-title">Types of Tools for data mining</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Details</th></tr></thead><tbody><tr id="6636d163-628c-452f-b154-b5b69cc007eb"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20Tools%20for%20data%20mining%20ee53854dc873498199deb6c0c31a4a59/Simple%20or%20sophisticated%206636d163628c452fb154b5b69cc007eb.html">Simple or sophisticated</a></td><td class="cell-a2U&#x27;">There are simple end-user data
+mining tools such as MS Excel, and there are more
+sophisticated tools such as IBM SPSS (Statistical Package for
+Social Sciences) Modeler.</td></tr><tr id="6b596983-69b0-4a23-b274-06b05f6fac45"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20Tools%20for%20data%20mining%20ee53854dc873498199deb6c0c31a4a59/Stand-alone%20or%20Embedded%206b59698369b04a23b27406b05f6fac45.html">Stand-alone or Embedded</a></td><td class="cell-a2U&#x27;">There are stand alone tools and
+there are tools embedded in an existing transaction
+processing or data warehousing or ERP system.</td></tr><tr id="ca421dd3-7883-4a2c-afa1-5999ae6c7668"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20Tools%20for%20data%20mining%20ee53854dc873498199deb6c0c31a4a59/Open%20source%20or%20Commercial%20ca421dd378834a2cafa15999ae6c7668.html">Open source or Commercial</a></td><td class="cell-a2U&#x27;">There are open source and
+freely available tools such as Weka, and there are
+commercial products.</td></tr><tr id="9b6e013b-d05a-4380-afcc-43cb7160c1c7"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20Tools%20for%20data%20mining%20ee53854dc873498199deb6c0c31a4a59/User%20interface%209b6e013bd05a4380afcc43cb7160c1c7.html">User interface</a></td><td class="cell-a2U&#x27;">There are text-based tools that require some
+programming skills, and there are GUI-based drag-and-drop
+format tools.</td></tr><tr id="df7a325f-56d5-4c79-a8ba-5c51068a678e"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20Tools%20for%20data%20mining%20ee53854dc873498199deb6c0c31a4a59/Data%20formats%20df7a325f56d54c79a8ba5c51068a678e.html">Data formats</a></td><td class="cell-a2U&#x27;">There are tools that work only on proprietary
+data formats and there are those directly accept data from a
+host of popular data management tools formats.</td></tr></tbody></table></div></details></li></ul><ul id="30d0b9a3-c1ae-4139-b734-dcbdfe991da9" class="toggle"><li><details open=""><summary>Best Practices</summary><blockquote id="b8343cdd-6937-42a3-8a24-85d2a9de8bed" class="">Effective and successful use of data mining activity
+requires both business and technology skills.</blockquote><blockquote id="6d39a490-f522-4574-82cd-3fe862519a8b" class="">The IT aspects help fetch the data from many sources,
+clean up the data, assemble it to meet the needs of the
+business problem, and then run the data mining techniques
+on the platform.</blockquote><blockquote id="8ddf8bcb-24d5-4fb2-8832-a3b28db1bcd2" class="">The Data Mining industry has proposed a Cross-Industry
+Standard Process for Data Mining (CRISP-DM). It has six
+essential steps</blockquote><div id="97ff4018-c4a3-41c0-95bd-79d57b09d92c" class="collection-content"><h4 class="collection-title">Beat practices of Data Mining</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Details</th></tr></thead><tbody><tr id="effcab9e-f982-4ada-a108-7f90d5b06798"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Beat%20practices%20of%20Data%20Mining%2097ff4018c4a341c095bd79d57b09d92c/Business%20Understanding%20effcab9ef9824adaa1087f90d5b06798.html">Business Understanding</a></td><td class="cell-&gt;W$v">The first and most important
+step in data mining is asking the right business
+questions. There should be strong executive support for
+the data mining project, which means that the project
+aligns well with the business strategy.</td></tr><tr id="0b68cd16-2800-476b-9b25-9ac13470a093"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Beat%20practices%20of%20Data%20Mining%2097ff4018c4a341c095bd79d57b09d92c/Data%20Understanding%200b68cd162800476b9b259ac13470a093.html">Data Understanding</a></td><td class="cell-&gt;W$v">A related important step is to
+understand the data available for mining. One needs to
+be imaginative in scouring for many elements of data
+through many sources in helping address the hypotheses
+to solve a problem. Without relevant data, the
+hypotheses cannot be tested.</td></tr><tr id="83c8d388-c5bb-402f-a79d-5252da0377a2"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Beat%20practices%20of%20Data%20Mining%2097ff4018c4a341c095bd79d57b09d92c/Data%20Preparation%2083c8d388c5bb402fa79d5252da0377a2.html">Data Preparation</a></td><td class="cell-&gt;W$v">Data cleaning can take 60-70% of
+the time in a data mining project. It may be desirable to
+continue to experiment and add new data elements from
+external sources of data that could help improve
+predictive accuracy.</td></tr><tr id="2ac28898-9d99-4168-a769-f9a4ae10bf16"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Beat%20practices%20of%20Data%20Mining%2097ff4018c4a341c095bd79d57b09d92c/Modelling%202ac288989d994168a769f9a4ae10bf16.html">Modelling</a></td><td class="cell-&gt;W$v">A host of modeling tools and algorithms
+should be used. A tool could be tried with different
+options, such as running different decision tree
+algorithms.</td></tr><tr id="4f244403-6a1a-4498-bb7e-4d6586792c00"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Beat%20practices%20of%20Data%20Mining%2097ff4018c4a341c095bd79d57b09d92c/Model%20Evaluation%204f2444036a1a4498bb7e4d6586792c00.html">Model Evaluation</a></td><td class="cell-&gt;W$v">One should not accept what the data
+says at first. It is better to triangulate the analysis by
+applying multiple data mining techniques, and
+conducting many what-if scenarios, to build confidence
+in the solution.</td></tr><tr id="f11865a4-33ff-47bd-802a-1d8ca82f7132"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Beat%20practices%20of%20Data%20Mining%2097ff4018c4a341c095bd79d57b09d92c/Dissemination%20and%20rollout%20f11865a433ff47bd802a1d8ca82f7132.html">Dissemination and rollout</a></td><td class="cell-&gt;W$v">It is important that the data
+mining solution is presented to the key stakeholders, and
+is deployed in the organization. Otherwise the project
+will be a waste of time and will be a setback for
+establishing and supporting a data-based
+decision-process culture in the organization. The model
+should be eventually embedded in the organization’s
+business processes.</td></tr></tbody></table></div><p id="4d6ad609-949c-4996-947e-fe759e1027b0" class="">
+</p></details></li></ul><ul id="f8ab9831-cc51-4b42-9043-80699883493b" class="toggle"><li><details open=""><summary>Myths</summary><ol id="6c676782-2774-407d-9bc0-0f0b2863e925" class="numbered-list" start="1"><li>Data Mining is about algorithms.</li></ol><ol id="e56ebbb4-218b-433c-b352-a3913bcdeea1" class="numbered-list" start="2"><li>Data Mining is about predictive accuracy.</li></ol><ol id="4008bb3d-8e59-4776-8a47-5ad27071a378" class="numbered-list" start="3"><li>Data Mining requires a data warehouse.</li></ol><ol id="eadc6919-3dbd-478c-b0ab-cc602aecb773" class="numbered-list" start="4"><li>Data Mining requires large quantities of data.</li></ol><ol id="0c65a241-837a-456b-8c33-ff180934bcae" class="numbered-list" start="5"><li>Data Mining requires a technology expert.</li></ol></details></li></ul><ul id="e25eb32c-72bd-496b-9119-cc8663b84525" class="toggle"><li><details open=""><summary>Mistakes</summary><ol id="764df885-75ef-43da-ad6d-791b94a43bce" class="numbered-list" start="1"><li>Selecting the wrong problem for data mining</li></ol><ol id="861b4af2-7f55-4e6b-86a7-af1cdba002f8" class="numbered-list" start="2"><li>Buried under mountains of data without clear
+metadata</li></ol><ol id="993e6d81-409a-499d-8ac3-ae7659b6dee8" class="numbered-list" start="3"><li>Disorganized data mining</li></ol><ol id="8dd1c756-35ee-4790-989e-d62a868cfdba" class="numbered-list" start="4"><li>Insufficient business knowledge</li></ol><ol id="1d307133-ef67-4ad2-a3f8-c383b8c3d116" class="numbered-list" start="5"><li>Incompatibility of data mining tools and
+datasets</li></ol><ol id="cfe51bb8-3f54-4f7e-b986-3d9c24f88d09" class="numbered-list" start="6"><li>Looking only at aggregated results and not at
+individual records/predictions</li></ol><ol id="2b337324-88e5-49ed-956f-33d982e01ec4" class="numbered-list" start="7"><li>Not measuring your results differently from
+the way your sponsor measures them</li></ol></details></li></ul></details></li></ul><ul id="885c73b9-b96d-40ba-ac32-8fc009906bdd" class="toggle"><li><details open=""><summary>Data Visualization</summary><blockquote id="7bb878b4-8091-4e86-b993-35c3a647f1bb" class="">Data Visualization is the art and science of making data
+easy to understand and consume, for the end user.</blockquote><blockquote id="54b408ac-5ba3-4212-94dd-347e38d72db2" class="">Data visualization is the last step in the data life cycle.
+This is where the data is processed for presentation in an
+easy-to-consume manner to the right audience for the right
+purpose.</blockquote><blockquote id="0d266425-2746-4cc1-9629-49d13357c332" class="">The data should be converted into a language and format
+that is best preferred and understood by the consumer of
+data.</blockquote><ul id="df4b18a7-4cce-4465-a5ff-b34958b029c5" class="toggle"><li><details open=""><summary>Excellence in Visualization</summary><div id="1813ca3f-f5a2-45c7-8de5-6bf23c53d29a" class="collection-content"><h4 class="collection-title">Excellence </h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Description</th></tr></thead><tbody><tr id="cc570ee9-6e2a-4c87-be35-fe3963c72394"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Show,%20and%20even%20reveal,%20the%20data%20cc570ee96e2a4c87be35fe3963c72394.html">Show, and even reveal, the data</a></td><td class="cell-Np9x">The data should tell a story, especially a story hidden in large masses of data. However, reveal the data in context, so the story is correctly told.</td></tr><tr id="47b1c948-5796-4fa0-b508-abc7414c4b51"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Induce%20the%20viewer%20to%20think%20of%20the%20substance%20of%20the%2047b1c94857964fa0b508abc7414c4b51.html">Induce the viewer to think of the substance of the data</a></td><td class="cell-Np9x">The format of the graph should be so natural to the data, that it hides itself and lets data shine.</td></tr><tr id="688faf3c-97f7-4d25-9064-c4287bd60876"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Avoid%20distorting%20what%20the%20data%20have%20to%20say%20688faf3c97f74d259064c4287bd60876.html">Avoid distorting what the data have to say</a></td><td class="cell-Np9x">Statistics can be used to hide the truth. In the name of simplifying, some crucial context could be removed leading to distorted communication.</td></tr><tr id="5c09cf33-c9bc-4073-954d-102e52acbdd8"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Make%20large%20data%20sets%20coherent%205c09cf33c9bc4073954d102e52acbdd8.html">Make large data sets coherent</a></td><td class="cell-Np9x">By giving shape to data, visualizations can help bring the data together to tell a comprehensive story.</td></tr><tr id="e8d9a5d6-3fad-4ffa-b376-df74c7e9a8fa"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Encourage%20the%20eyes%20to%20compare%20different%20pieces%20of%20%20e8d9a5d63fad4ffab376df74c7e9a8fa.html">Encourage the eyes to compare different pieces of data</a></td><td class="cell-Np9x">Organize the chart in ways the eyes would naturally move to derive insights from the graph.</td></tr><tr id="081f3f70-6e27-48e1-9590-c755e2851d24"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Reveal%20the%20data%20at%20several%20levels%20of%20detail%20081f3f706e2748e19590c755e2851d24.html">Reveal the data at several levels of detail:</a></td><td class="cell-Np9x">Graphs leads to insights, which raise further curiosity, and thus presentations should help get to the root cause.</td></tr><tr id="9534ee6a-6bed-4f89-85a3-546ccd73e2e8"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Serve%20a%20reasonably%20clear%20purpose%209534ee6a6bed4f8985a3546ccd73e2e8.html">Serve a reasonably clear purpose</a></td><td class="cell-Np9x">informing or decision-making</td></tr><tr id="767fd393-470e-45f4-af63-ae6d22bb07c2"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Excellence%201813ca3ff5a245c78de56bf23c53d29a/Closely%20integrate%20with%20the%20statistical%20and%20verbal%20%20767fd393470e45f4af63ae6d22bb07c2.html">Closely integrate with the statistical and verbal descriptions of the dataset:</a></td><td class="cell-Np9x">There should be no separation of charts and text in presentation. Each mode should tell a complete story. Intersperse text with the map/graphic to highlight the main insights.</td></tr></tbody></table></div></details></li></ul><ul id="03acfe3f-f100-4897-b8e1-b7024bdadb5c" class="toggle"><li><details open=""><summary>Types of Charts</summary><div id="76536c93-e363-4a73-b8cc-6ad5e5d6b57f" class="collection-content"><h4 class="collection-title">Types of chart</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Description</th></tr></thead><tbody><tr id="90cf9901-21e3-4164-a4c3-40f777310615"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Line%20graph%2090cf990121e34164a4c340f777310615.html">Line graph</a></td><td class="cell-RJn3">Line graph is a basic and most popular type of displaying information. It shows data as a series of points connected by straight line segments. If mining with time-series data, time is usually shown on the x-axis. Multiple variables can be represented on the same scale on y-axis to compare of the line graphs of all the variables.</td></tr><tr id="2be9a423-7da3-4986-9b9e-3fa3e04a75f4"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Scatter%20plot%202be9a4237da349869b9e3fa3e04a75f4.html">Scatter plot</a></td><td class="cell-RJn3">Scatter plot is another very basic and useful graphic form. It helps reveal the relationship between two variables. Unlike in a line graph, there are no line segments connecting the points.</td></tr><tr id="b1323474-0a6c-4890-9259-0d71a1f0f8d9"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Bar%20graph%20b13234740a6c489092590d71a1f0f8d9.html">Bar graph</a></td><td class="cell-RJn3">A bar graph shows thin colorful rectangular bars with their lengths being proportional to the values represented. The bars can be plotted vertically or horizontally.</td></tr><tr id="fe760d0c-a3cd-491b-ad49-44f564b5704e"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Stacked%20Bar%20graphs%20fe760d0ca3cd491bad4944f564b5704e.html">Stacked Bar graphs</a></td><td class="cell-RJn3">Stacked bar graphs are a particular method of doing bar graphs. Values of multiple variables are stacked one on top of the other to tell an interesting story.</td></tr><tr id="e54a7543-6e81-44dd-b345-a73002d4ccdc"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Histograms%20e54a75436e8144ddb345a73002d4ccdc.html">Histograms</a></td><td class="cell-RJn3">Histograms are like bar graphs, except that they
+are useful in showing data frequencies or data values on
+classes (or ranges) of a numerical variable.</td></tr><tr id="edd52663-e6e1-4a8b-9ef0-2efe5879e81d"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Pie%20charts%20edd52663e6e14a8b9ef02efe5879e81d.html">Pie charts</a></td><td class="cell-RJn3">Pie charts are very popular to show the
+distribution of a variable, such as sales by region. The
+size of a slice is representative of the relative strengths
+of each value.</td></tr><tr id="d4ecdf4a-0808-4e9f-871a-c0166f2c6a62"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Box%20charts%20d4ecdf4a08084e9f871ac0166f2c6a62.html">Box charts</a></td><td class="cell-RJn3">Box charts are special form of charts to show the
+distribution of variables. The box shows the middle half
+of the values, while whiskers on both sides extend to the
+extreme values in either direction.</td></tr><tr id="1a457029-752c-43b2-abc7-151f701913a8"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Bubble%20Graph%201a457029752c43b2abc7151f701913a8.html">Bubble Graph</a></td><td class="cell-RJn3">Bubble Graph is an interesting way of displaying
+multiple dimensions in one chart. It is a variant of a
+scatter plot with many data points marked on two
+dimensions.</td></tr><tr id="1e728f9d-0373-48b7-b7ff-a8c6d8111fb7"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Dials%201e728f9d037348b7b7ffa8c6d8111fb7.html">Dials</a></td><td class="cell-RJn3">Dials are charts like the speed dial in the car, that
+shows whether the variable value (such as sales number)
+is in the low range, medium range, or high range. These
+ranges could be colored red, yellow and green to give an
+instant view of the data.</td></tr><tr id="258d1a86-0b35-4276-a864-6419a1971117"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Geographical%20Data%20maps%20258d1a860b354276a8646419a1971117.html">Geographical Data maps</a></td><td class="cell-RJn3">Geographical Data maps are particularly useful
+maps to denote statistics.</td></tr><tr id="d66c440e-5266-401d-a372-a7321ac26ea6"><td class="cell-title"><a href="Business%20Intelligence%20Concepts%20and%20Application%2089ea7baa327a4aed96b87d6a7dbbe4dc/Types%20of%20chart%2076536c93e3634a73b8cc6ad5e5d6b57f/Pictographs%20d66c440e5266401da372a7321ac26ea6.html">Pictographs</a></td><td class="cell-RJn3">One can use pictures to represent data.</td></tr></tbody></table></div></details></li></ul><ul id="17820ed0-6d4a-43d6-9885-92c0bb9e6b93" class="toggle"><li><details open=""><summary>Tips for Data Visualization</summary><ol id="13ea23f1-49f4-47ec-b860-02702775869e" class="numbered-list" start="1"><li>Fetch appropriate and correct data for analysis.</li></ol><ol id="a49a7b5a-55be-46ab-8cbf-7091133813a1" class="numbered-list" start="2"><li>Sort the data in the most appropriate manner.</li></ol><ol id="3aebe746-0a6f-4d0c-8365-978b6706e5e4" class="numbered-list" start="3"><li>Choose appropriate method to present the data.</li></ol><ol id="f13325d1-e50c-4da6-9f6e-5219dc0f0486" class="numbered-list" start="4"><li>The data set could be pruned.</li></ol><ol id="83dff651-a9cb-44f2-ae28-0da511edd34d" class="numbered-list" start="5"><li>The visualization could show additional dimension for
+reference.</li></ol><ol id="281843a8-7be5-46f0-aee3-cc3e38477047" class="numbered-list" start="6"><li>The numerical data may need to be binned into a few
+categories.</li></ol><ol id="89fec918-d80b-443f-8a12-263d95d45919" class="numbered-list" start="7"><li>High-level visualization could be backed by more
+detailed analysis.</li></ol><ol id="62440e86-328f-4dd4-84e4-bccf1b7d67ad" class="numbered-list" start="8"><li>Need to present additional textual information</li></ol></details></li></ul></details></li></ul></div></article></body></html>

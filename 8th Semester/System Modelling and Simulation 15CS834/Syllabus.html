@@ -1,0 +1,641 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Syllabus</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ee81dbc9-1528-46ec-87ee-38aa7954c0bb" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_emanuel_leutze.jpg" style="object-position:center 30.000000000000004%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📄</span></div><h1 class="page-title">Syllabus</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bd57e294-8e97-4f7a-a1b7-94cc6c1b4aa2"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">This page is designed to be shared with students on the web. Click <code>Share</code> at the top right and switch on <code>Public Access</code> to publish this page. Copy the link to share it.</div></figure><h1 id="0af38b85-0260-415d-aaac-c5d3f0fb4da6" class="">History 340</h1><p id="3b030cfb-b5ec-4e25-9c48-66560d572965" class=""><strong>Instructor: </strong>Professor Linus Caesar</p><p id="7e66783b-7b9a-4a6f-af5b-016f0afc1eb2" class=""><strong>Email:</strong> linus.caesar@school.edu</p><h1 id="fc701274-0762-4a63-a2fb-2e761146c8f5" class="">📜 Course Description</h1><hr id="8f61322c-8e15-4b1d-8fe2-125661021830"/><div id="947489c6-eacb-433f-a55c-3404788e8647" class="column-list"><div id="efd0ac83-8493-47e4-9066-539acd4f2d31" style="width:16.666666666666664%" class="column"><p id="caa7996d-9f0f-4b80-8c16-711ac420ec35" class="">Module-1</p></div><div id="22d1a7d7-9f5b-44ad-89f0-1b3623f8f0fc" style="width:58.33333333333333%" class="column"><p id="a300550c-3d2e-42d1-ade4-9b6d123bd8f4" class="block-color-brown_background">Introduction</p></div><div id="881f3ef9-0b44-42da-b0bc-0fbcc6d1fbc7" style="width:25.00000000000001%" class="column"><p id="76a512f2-67a8-4ecf-b204-e9022a6e9abf" class="">10 hours</p></div></div><p id="eda1cf55-27c2-430e-9ba1-ffc58c28224b" class="">Introduction: When simulation is the appropriate tool and when it is not appropriate, Advantages and disadvantages of Simulation; Areas of application, Systems and system environment; Components of a system; Discrete and continuous systems, Model of a system; Types of Models, Discrete-Event System Simulation Simulation examples: Simulation of queuing systems. General
+Principles, Simulation Software:Concepts in Discrete-Event Simulation. The Event-Scheduling / Time-Advance Algorithm, Manual simulation Using Event Scheduling</p><hr id="d3c22c27-724f-4020-b5e6-162612b8684a"/><div id="e1a9bf9b-d874-45c3-b2dc-4351b9f14b92" class="column-list"><div id="90247b31-4b99-4165-ad37-3fa0f44f1552" style="width:16.666666666666664%" class="column"><p id="53926892-f5ec-4ff8-90b9-1a27c32d2cf8" class="">Module-2</p></div><div id="84726024-63fe-40a8-ba90-5ab0ed29f7a8" style="width:58.333333333333336%" class="column"><p id="23c433cf-5dd9-4eee-b29a-39f526fc2d80" class="block-color-brown_background">Statistical Models in Simulation</p></div><div id="67f58d13-d234-410d-a1f5-56df9813ec64" style="width:25.00000000000001%" class="column"><p id="3175088e-a539-45fb-80be-ea26b015b50d" class="">10 hours</p></div></div><p id="85394914-59bf-4fc9-8d87-37748d121144" class="">Statistical Models in Simulation :Review of terminology and concepts, Useful statistical models,Discrete distributions. Continuous distributions,Poisson process, Empirical distributions.
+Queuing Models: Characteristics of queuing systems,Queuing notation,Long-run measures of performance of queuing systems,Long-run measures of performance of queuing systems cont…,Steady-state behaviour of M/G/1 queue, Networks of queues,</p><hr id="06598591-53c1-4d9c-9097-dd9be1f592aa"/><div id="f79ed826-13c4-4e96-a1ae-b4408822104d" class="column-list"><div id="dbf5caa1-1806-40c8-93d3-31912c825d81" style="width:16.666666666666664%" class="column"><p id="b76251e4-9970-4018-a94b-3f6798709fae" class="">Module-3</p></div><div id="f152234f-b3cc-4777-9de6-655b8e774f77" style="width:58.333333333333336%" class="column"><p id="a88c4337-51a8-4af8-9c00-4f5e28e2e354" class="block-color-brown_background">Random-NumberGeneration</p></div><div id="536617f9-3fe2-4dba-bbc9-c9bcd4a49740" style="width:24.999999999999993%" class="column"><p id="ada747d4-a792-438a-8fef-f205711b8d01" class="">10 hours</p></div></div><p id="d10a99cc-e041-4bcd-8f91-28192f45813f" class="">Random-NumberGeneration:Properties of random numbers; Generation of pseudo-random numbers, Techniques for generating random numbers,Tests for Random Numbers,
+Random-Variate Generation: ,Inverse transform technique Acceptance-Rejection technique.</p><hr id="8866e912-0840-4c5e-918e-ef9f67b2165f"/><div id="41d3b19e-f404-4e3f-b480-a41b55a27165" class="column-list"><div id="561c67ec-ee4a-481d-9e6c-91e415447c64" style="width:16.666666666666664%" class="column"><p id="b618f8d1-31c7-4fec-9429-3ec4c1704441" class="">Module-4</p></div><div id="dcee3908-6112-4783-8ca2-a3349b6fe3f4" style="width:58.333333333333336%" class="column"><p id="4d3976d8-2bb2-4078-b8a1-863c0a0dac3a" class="block-color-brown_background">Input Modeling</p></div><div id="6275839c-efc2-4b09-bdae-b24498fd5939" style="width:25%" class="column"><p id="fd1a882e-1693-4147-8edf-4d2b23ce3c11" class="">10 hours</p></div></div><p id="f9b57f93-8fab-4eb2-a2eb-f24ff1ef4627" class="">Input Modeling: Data Collection; Identifying the distribution with data, Parameter estimation, Goodness of Fit Tests, Fitting a non-stationary Poisson process, Selecting input models without data, Multivariate and Time-Series input models.
+Estimation of Absolute Performance: Types of simulations with respect to output analysis ,Stochastic nature of output data, Measures of performance and their estimation, Contd..</p><hr id="8f94e407-707c-4602-a036-08c2e03c8196"/><div id="d82cfcf1-9208-4d81-ac9d-d01d021984eb" class="column-list"><div id="c5bd0b9a-a93d-4105-ad64-90beb067f268" style="width:16.666666666666664%" class="column"><p id="83bc8267-f2c9-4c79-bb39-5963bd2b7c5f" class="">Module-5</p></div><div id="1eb8738d-ae9a-474b-8f07-4fd47304ec29" style="width:58.33333333333333%" class="column"><p id="707a57bc-c18f-44f2-893f-1d86baf417bb" class="block-color-brown_background">Measures of performance and their estimation</p></div><div id="0820f16a-fe30-4e14-9224-da2d5f90f3d8" style="width:24.999999999999996%" class="column"><p id="279d31d9-05c0-4360-bb93-8cf3f3c5c423" class="">10 hours</p></div></div><p id="27780281-7c24-4cf3-9447-ab8fdd13b83d" class="">Measures of performance and their estimation,Output analysis for terminating simulations Continued..,Output analysis for steady-state simulations.
+Verification, Calibration And Validation: Optimization: Model building, verification and validation, Verification of simulation models, Verification of simulation models,Calibration and validation of models, Optimization via Simulation.</p><hr id="8e1ed320-2215-4f09-a76d-73335ec36ef3"/><hr id="cb4f0ac9-7435-47ba-9a04-7b1816bbb1dc"/><h1 id="6e4de9cb-2292-4142-bb74-30e6bf9a33d4" class="">📚 Readings</h1><h1 id="fdf03387-70fc-4ba4-8755-5728472d85cf" class="">Course Schedule</h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="18757659-4ecb-4242-8ba8-b8654a8a328e"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%">This course schedule provides a thorough list of weekly topics, readings, assignments, and exams. Click <code>All</code> to switch to week, exam, or calendar view.</div></figure><div id="1f8b973b-7495-4893-8342-f1282f3b1128" class="collection-content"><h4 class="collection-title">Schedule</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>Dates</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Type</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Topic</th></tr></thead><tbody><tr id="b1dda5ec-fa8a-4fac-a473-ba61e6caae1f"><td class="cell-title"><a href="Syllabus%20ee81dbc9152846ec87ee38aa7954c0bb/Schedule%201f8b973b749548938342f1282f3b1128/Week%201%20b1dda5ecfa8a4faca473ba61e6caae1f.html"><span class="icon">📒</span>Week 1</a></td><td class="cell-0#}p"><time>@May 16, 2019 → May 20, 2019</time></td><td class="cell-ysX^"><span class="selected-value select-value-color-yellow">📒 Lesson</span></td><td class="cell-v&lt;K]"><span class="selected-value select-value-color-default">Pre-revolution</span></td></tr><tr id="f2fd653a-b8b7-4032-a180-e9d3023e3147"><td class="cell-title"><a href="Syllabus%20ee81dbc9152846ec87ee38aa7954c0bb/Schedule%201f8b973b749548938342f1282f3b1128/Essay%20#1%20f2fd653ab8b74032a180e9d3023e3147.html"><span class="icon">📌</span>Essay #1</a></td><td class="cell-0#}p"><time>@May 2, 2019</time></td><td class="cell-ysX^"><span class="selected-value select-value-color-red">📌 Assignment</span></td><td class="cell-v&lt;K]"><span class="selected-value select-value-color-default">Pre-revolution</span></td></tr><tr id="f48055ac-575c-4591-9d5b-f88f0db9f080"><td class="cell-title"><a href="Syllabus%20ee81dbc9152846ec87ee38aa7954c0bb/Schedule%201f8b973b749548938342f1282f3b1128/Final%20Exam%20f48055ac575c45919d5bf88f0db9f080.html"><span class="icon">💯</span>Final Exam</a></td><td class="cell-0#}p"><time>@May 19, 2019</time></td><td class="cell-ysX^"><span class="selected-value select-value-color-blue">🔍 Exam</span></td><td class="cell-v&lt;K]"><span class="selected-value select-value-color-blue">The Great Depression</span><span class="selected-value select-value-color-green">World War I</span><span class="selected-value select-value-color-purple">World War II</span></td></tr><tr id="cce29b83-de87-47d3-a7f7-3b9d6b05e0e4"><td class="cell-title"><a href="Syllabus%20ee81dbc9152846ec87ee38aa7954c0bb/Schedule%201f8b973b749548938342f1282f3b1128/Lesson%20cce29b83de8747d3a7f73b9d6b05e0e4.html"><span class="icon">📒</span>Lesson</a></td><td class="cell-0#}p"></td><td class="cell-ysX^"><span class="selected-value select-value-color-yellow">📒 Lesson</span></td><td class="cell-v&lt;K]"></td></tr><tr id="3d2092b1-4f9e-4b8d-8916-76035c65f5b2"><td class="cell-title"><a href="Syllabus%20ee81dbc9152846ec87ee38aa7954c0bb/Schedule%201f8b973b749548938342f1282f3b1128/Assignment%203d2092b14f9e4b8d891676035c65f5b2.html"><span class="icon">✏️</span>Assignment</a></td><td class="cell-0#}p"></td><td class="cell-ysX^"></td><td class="cell-v&lt;K]"></td></tr><tr id="407e469e-26c7-4a19-a765-d9c651931018"><td class="cell-title"><a href="Syllabus%20ee81dbc9152846ec87ee38aa7954c0bb/Schedule%201f8b973b749548938342f1282f3b1128/Exam%20407e469e26c74a19a765d9c651931018.html"><span class="icon">📌</span>Exam</a></td><td class="cell-0#}p"></td><td class="cell-ysX^"></td><td class="cell-v&lt;K]"></td></tr></tbody></table></div><h1 id="33b28ad9-fbae-40cd-8b94-93fede2f006a" class="">🏆 <strong>Grading</strong></h1><div id="4a772b4d-b2b5-46e4-83ce-2eb312dba37f" class="column-list"><div id="ba9bf7b7-333b-48c9-9900-f03059c19f5b" style="width:50%" class="column"><h3 id="4653828f-574b-4cba-9155-6d855d7470ff" class="">Breakdown</h3><p id="7ff3ed49-b209-47ab-a3f0-adb47d28f0e6" class="">Participation: <strong>15%</strong>
+Response Papers: <strong>15%</strong>
+Essay #1: <strong>15%</strong>
+Midterm: <strong>20%</strong>
+Essay #2: <strong>15%</strong>
+Final Exam: <strong>20%</strong></p></div><div id="e2fc00ff-d7d2-4ef1-8477-887b1528a775" style="width:50%" class="column"><h3 id="947fbae7-5f61-4f05-b5d8-617df0c01995" class=""><strong>Scale</strong></h3><p id="ca6b954c-aad2-4aa1-8a3c-e1d40bf63df1" class=""><strong>A</strong> 90%-100%
+<strong>B</strong> 80%-89%
+<strong>C</strong> 70%-79%
+<strong>D</strong> 60%-69%
+<strong>F</strong> &lt; 60%</p></div></div><h3 id="2587841a-6d92-4748-b78c-590afa6034f1" class=""><strong>Assignment Submission</strong></h3><p id="ce848218-a316-47fa-bc26-bd9eff58a9b4" class="">All essays and papers are due in lecture (due dates are listed on the schedule). No electronic copies will be accepted!</p><h3 id="e67026ae-b254-4c48-b007-cce2c720df08" class=""><strong>Late Assignments</strong></h3><p id="bde5041c-520e-4b9c-a441-64a4abb724b7" class="">Late work will be deducted 5% per twenty-four hour period that elapses after the due date. If foreseen or unforeseen circumstances prevent you from completing an assignment on time, you may request an extension. Extensions must be requested in advance of the due date. If the situation warrants an extension, we will determine a new due date for the essay based on your individual circumstances.</p><h1 id="75acc86d-3333-4b7b-b889-642c635e23a7" class="">😢 Plagiarism</h1><p id="3a03226b-e1c2-471e-89bf-7fd859f07c90" class="">Presenting someone else’s ideas as your own, either verbatim or recast in your own words – is a serious academic offense with serious consequences. Please familiarize yourself with the discussion of plagiarism in our campus policies.</p><h1 id="aecbf956-2bb8-4cd7-b26f-a5dd461f041c" class="">🧠 Final Examination</h1><p id="3bd54537-1792-462f-8e17-0785877e067d" class="">The final examination will consist of an essay written during the exam period. You will receive the question at least one week before the test and may use a single page of notes during it.</p></div></article></body></html>

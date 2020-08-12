@@ -1,0 +1,639 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MODULE 1</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e64a21a2-d6e7-40b9-af73-cc2c5981e37a" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">1️⃣</span></div><h1 class="page-title">MODULE 1</h1></header><div class="page-body"><ul id="ab3f7b12-d636-4a2e-9aca-2b87af21849f" class="toggle"><li><details open=""><summary>What is IoT?</summary><ul id="6b07b19b-fbb8-4a5e-999e-8f992d2fceb6" class="bulleted-list"><li>IoT is a technology that basically tries to give internet connectivity to devices previously not connected to the internet.</li></ul><ul id="5bcf69b7-fdf4-47b3-9a5f-90d4b7f16c23" class="bulleted-list"><li>Allows the physical world to be smart and controlled through an intelligent network</li></ul><ul id="3a126dd5-3fa0-4e7e-aa58-682e9a495dd5" class="bulleted-list"><li>Integrates the physical world and computers allowing improvements in efficiency, accuracy, automation, and enables advanced applications.</li></ul></details></li></ul><ul id="9e058f14-c26e-40fc-a38d-f865ba7a2a11" class="toggle"><li><details open=""><summary>Genesis of IoT</summary><ul id="2a518f76-2ff7-4c02-83ff-23bcdc9b8baf" class="bulleted-list"><li>The IoT started between the years 2008 and 2009. “Internet of Things” is invented by Kevin Ashton.</li></ul><blockquote id="5f79ab54-d03f-49bf-afbf-39218d508bd5" class="">The evolution of the Internet can be categorized into four phases:</blockquote><div id="7a42776a-be67-4c49-9667-bac239e35f15" class="collection-content"><h4 class="collection-title">Evolution of the internet</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>internet phases</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>description</th></tr></thead><tbody><tr id="9401fcd1-9637-451a-8add-6506affc072f"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Evolution%20of%20the%20internet%207a42776abe674c499667bac239e35f15/Connectivity%209401fcd19637451a8add6506affc072f.html">Connectivity</a></td><td class="cell-_,._">Digitize access</td></tr><tr id="e9d31c3f-7277-4d91-9060-92088df249f3"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Evolution%20of%20the%20internet%207a42776abe674c499667bac239e35f15/Networked%20Economy%20e9d31c3f72774d91906092088df249f3.html">Networked Economy</a></td><td class="cell-_,._">Digitize business</td></tr><tr id="e0379ceb-6f8f-439e-aca3-e9ac30b24137"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Evolution%20of%20the%20internet%207a42776abe674c499667bac239e35f15/Immersive%20Experiences%20e0379ceb6f8f439eaca3e9ac30b24137.html">Immersive Experiences</a></td><td class="cell-_,._">Digitize interactions</td></tr><tr id="6338df05-db2a-45ac-8141-8c08fec76069"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Evolution%20of%20the%20internet%207a42776abe674c499667bac239e35f15/Internet%20of%20Things%206338df05db2a45ac81418c08fec76069.html">Internet of Things</a></td><td class="cell-_,._">Digitize the world</td></tr></tbody></table></div></details></li></ul><ul id="bfc96558-8c6e-45e2-9973-9ca8bbb91a02" class="toggle"><li><details open=""><summary>IoT and Digitization</summary><ul id="6372c641-eb64-4716-985e-122a36274901" class="bulleted-list"><li>Digitizationis the conversion of information into a digital format. It is focused on connecting
+“things” with its data and business result.</li></ul><ul id="7fc1f03d-1bfe-47aa-822f-4a3ef8d1c7dc" class="bulleted-list"><li>In the context of IoT, digitisation brings together things, data, and business process to make
+networked connections more relevant and valuable.</li></ul><ul id="dddf7c40-c6b9-4b85-8d89-ca03c5e61aaa" class="bulleted-list"><li>Smart objects and increased connectivity drive digitization, and thus many companies, countries, and governments are embracing this growing trend.</li></ul></details></li></ul><ul id="379ef957-475f-46cf-8e72-a7fa37832d0d" class="toggle"><li><details open=""><summary>Impact of IoT</summary><blockquote id="ff94a619-1e03-4f07-94d7-75f5f004e965" class="">Managing and monitoring smart objects using real-time connectivity enables data-driven decision
+making which results in the optimisation of systems and processes and delivers new services that
+save time while improving the overall quality of life.</blockquote><ul id="4699ca70-9af5-45bc-ab27-e417e1856e14" class="toggle"><li><details open=""><summary>Connected Roadways</summary><blockquote id="e810b244-bb1f-42e2-8a57-ef4ed6d2e616" class="">IoT is a necessary component for implementing a fully connected transportation infrastructure.</blockquote><ul id="bb160075-58fc-42ce-a816-d85c3bf5b546" class="bulleted-list"><li>Provide better interaction with the transportation system through bidirectional data exchanges.</li></ul><ul id="8d805f12-f488-416f-89e5-7361ef1852c9" class="bulleted-list"><li>Provide important data to the riders.</li></ul><ul id="917478df-f964-44ce-b4a3-93e0b5813985" class="bulleted-list"><li>Provide reliable communications and data from transportation-related sensors.</li></ul><h3 id="4a10478c-2a06-4c89-a934-4b05335020ef" class="">Benefits of connected roadways</h3><ul id="1c2d4ff2-f370-473b-83df-c0258ef6701f" class="bulleted-list"><li>Reduced traffic jams and urban congestion.</li></ul><ul id="89ab63e4-e0e8-4275-8fc4-5ba558a8202d" class="bulleted-list"><li>Decreased casualties and fatalities.</li></ul><ul id="f64930e8-f861-4cb6-95ce-fcdf59d5d9d6" class="bulleted-list"><li>Increased response time for emergency vehicles.</li></ul><ul id="baf033dc-7d41-475c-9b03-1593f179f6e5" class="bulleted-list"><li>Reduced vehicle emissions.</li></ul><h3 id="903f1505-6f60-4633-9713-ae10752830a3" class="">IoT applications in connected roadways</h3><ul id="dbe71c61-402d-4b17-91a6-64c7267f8ff3" class="bulleted-list"><li><strong>Intersection Movement Assist: </strong>Warns a driver (or a self-driving car) when it is not safe to enter an intersection due to a high probability of a collision.</li></ul><ul id="605bb1ca-12f1-4fe6-9d0d-dadd522ef7d8" class="bulleted-list"><li><strong>Automated Vehicle tracking: </strong>A vehicle’s location is used for notification of arrival times, theft prevention, or highway assistance.</li></ul><ul id="00140437-5cde-4486-a763-afff102dbd52" class="bulleted-list"><li><strong>Cargo Management: </strong>Provides precise positioning of cargo as it is en route so that notification alerts can be sent to a dispatcher and routes can be optimized for congestion and weather.</li></ul><ul id="e1033096-2429-4726-a986-565f88ca2b81" class="bulleted-list"><li><strong>Road Weather Communications: </strong>Use sensors and data from satellites to avoid dangerous conditions.</li></ul><p id="9e01fbfc-7a5b-4e02-9fdc-69823424b25b" class="">
+</p></details></li></ul><ul id="6fb47b71-4050-40d1-acf9-4c6f7e9cc68a" class="toggle"><li><details open=""><summary>Connected Factories</summary><h3 id="9a360042-000c-42dd-bf7b-f066e684b469" class="">The main challenges facing manufacturing in a factory:</h3><ul id="cfa4fe5e-9453-4c0a-8718-f2206bcf35df" class="bulleted-list"><li>Accelerating new product and service introductions to meet customer and market opportunities.</li></ul><ul id="e04657d5-d626-452b-a8f3-04da34377195" class="bulleted-list"><li>Increasing plant production, quality, and up-time while decreasing cost.</li></ul><ul id="08010f25-3ed1-48bb-aa49-a676980a85d5" class="bulleted-list"><li>Mitigating unplanned downtime.</li></ul><ul id="92ed1669-325e-47c7-9deb-4ec6ec6c24bf" class="bulleted-list"><li>Securing factories from cyber threats.</li></ul><ul id="be24281b-9148-4b13-841c-7d74dd48258c" class="bulleted-list"><li>Decreasing high cabling and re-cabling costs.</li></ul><ul id="2d443d3a-3f76-449a-8b12-3b122b30b21d" class="bulleted-list"><li>Improving worker productivity and safety.</li></ul><blockquote id="22ee9e5e-b414-4a59-9507-3f78ea8e7536" class="">A convergence of factory-based operational technologies and architectures with global IT networks is referred to as the connected factory.</blockquote><blockquote id="3f3ebc0a-078f-4124-a97f-6309a6592bb3" class="">The IoT wave of Industry 4.0 takes manufacturing from a purely automated assembly line model of
+production to a model where the machines are intelligent and communicate with one another. IoT in
+manufacturing brings with it the opportunity for inserting intelligence into factories. This starts with
+creating smart objects, which involves embedding sensors, actuators, and controllers into just about
+everything related to production.</blockquote></details></li></ul><ul id="2ce40381-2aa0-4df7-942d-f10a31838776" class="toggle"><li><details open=""><summary>Smart Connected Buildings</summary><blockquote id="28dd49d5-dd4c-4f55-b7ff-416b53a08eaa" class="">Another place IoT is making a disruptive impact is in the smart connected buildings space. In the past several decades, buildings have become increasingly complex, with systems overlaid one upon another, resulting in complex intersections of structural, mechanical, electrical, and IT components.</blockquote><h3 id="ce0913b6-36af-4c1d-a97b-f58f92ac630b" class="">Areas of application of IoT in Buildings</h3><ul id="3f096cf3-c420-4108-a05b-01852f51c26c" class="bulleted-list"><li>Lighting.</li></ul><ul id="cc37e6a2-cfed-4ce5-9fd5-927509326aba" class="bulleted-list"><li>Air conditioning.</li></ul><ul id="9dda865c-383a-4026-a5f6-54a2e8d548bb" class="bulleted-list"><li>Communication.</li></ul><ul id="77ca46db-8339-4f8e-889c-518c197399b2" class="bulleted-list"><li>Safety and Security.</li></ul><ul id="c77f43f9-6251-49b6-98e5-39b6649ea359" class="bulleted-list"><li>Surveillance. </li></ul></details></li></ul><ul id="c45058e6-dc28-44bb-a801-eea1ddf4c151" class="toggle"><li><details open=""><summary>Smart Creatures</summary><blockquote id="d672ff14-62d2-47cb-a7a1-9d939bc7d654" class="">When technology is used to smartly monitor the health of an animal that animal is said to be connected and smart.</blockquote></details></li></ul></details></li></ul><ul id="d5eaef69-e406-482e-9872-c2b8c7bedc83" class="toggle"><li><details open=""><summary>Convergence of IT and OT</summary><div id="33f42ea6-4ae5-4da1-9412-38242c2f09a1" class="collection-content"><h4 class="collection-title">IT and OT differences</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Criterion</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>OT</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>IT</th></tr></thead><tbody><tr id="e032d980-120a-482c-ae78-59d470994dc3"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Operational%20Focus%20e032d980120a482cae7859d470994dc3.html">Operational Focus</a></td><td class="cell-.(mK">24x7 operation</td><td class="cell-Wbms">Manage computers, data and privacy.</td></tr><tr id="da1a9d46-3571-491c-8f44-4c37b58f904f"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Priority%20da1a9d463571491c8f444c37b58f904f.html">Priority</a></td><td class="cell-.(mK">Availability &gt; Integrity &gt; Security</td><td class="cell-Wbms">Security &gt; Integrity &gt; Availability</td></tr><tr id="71acfa3f-41a9-4425-8440-303edabeeac6"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Types%20of%20Data%2071acfa3f41a944258440303edabeeac6.html">Types of Data</a></td><td class="cell-.(mK">Supervisory data</td><td class="cell-Wbms">Voice, Video, Transnational data</td></tr><tr id="10882b15-442b-4b73-8251-2954175603fb"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Security%2010882b15442b4b7382512954175603fb.html">Security</a></td><td class="cell-.(mK">Controlled physical access</td><td class="cell-Wbms">Device and user authentication</td></tr><tr id="eeffd285-a1e4-4872-8d38-8069a9aafa64"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Implication%20of%20Failure%20eeffd285a1e448728d388069a9aafa64.html">Implication of Failure</a></td><td class="cell-.(mK">disruption directly affects business</td><td class="cell-Wbms">Some failure can be tolerated</td></tr><tr id="0e307703-6055-42cf-b6b9-87de0fadee2a"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Upgrades%200e307703605542cfb6b987de0fadee2a.html">Upgrades</a></td><td class="cell-.(mK">Only during planned downtimes</td><td class="cell-Wbms">outages can be mitigated hence during flexible times.</td></tr><tr id="dbfd1343-4c19-43b3-9083-31120c26c489"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/IT%20and%20OT%20differences%2033f42ea64ae54da1941238242c2f09a1/Vulnerability%20dbfd13434c1943b3908331120c26c489.html">Vulnerability</a></td><td class="cell-.(mK">Low: because of devices being isolated and technology being proprietry</td><td class="cell-Wbms">High: Continuous patching required</td></tr></tbody></table></div><blockquote id="93cfe84d-a2e7-4650-97e7-c9a165b1fd5a" class="">With the rise of IoT and standards-based protocols, such as IPv6, the IT and OT worlds are converging.</blockquote><p id="73777fba-aa12-46e2-bda7-09c88c98960e" class="">
+</p></details></li></ul><ul id="266f2ee9-a705-4e91-8c55-53dc8e75e604" class="toggle"><li><details open=""><summary>IoT Challenges</summary><div id="982abefc-4fb7-4c8e-8d04-cfbb34cb8aaa" class="collection-content"><h4 class="collection-title">Challenges for IoT</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Description</th></tr></thead><tbody><tr id="8372eed1-2894-45b0-a293-12d5ab2536cd"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Challenges%20for%20IoT%20982abefc4fb74c8e8d04cfbb34cb8aaa/Scale%208372eed1289445b0a29312d5ab2536cd.html">Scale</a></td><td class="cell-oVj&lt;">The scale of OT is significantly larger than IT calling the need for continuous expansion despite large efforts.</td></tr><tr id="6b72b957-168a-4341-9f6f-5df3b2d6f7ea"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Challenges%20for%20IoT%20982abefc4fb74c8e8d04cfbb34cb8aaa/Security%206b72b957168a43419f6f5df3b2d6f7ea.html">Security</a></td><td class="cell-oVj&lt;">More connected devices mean more security making it expensive to protect all devices at the same time</td></tr><tr id="6606ce6d-8cb5-4259-bc22-f63e17560c59"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Challenges%20for%20IoT%20982abefc4fb74c8e8d04cfbb34cb8aaa/Privacy%206606ce6d8cb54259bc22f63e17560c59.html">Privacy</a></td><td class="cell-oVj&lt;">Sensors gather a lot of information which can be misused, this poses a huge threat to privacy.</td></tr><tr id="0d76ce38-9494-47c0-9cf1-1e064b3460f0"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Challenges%20for%20IoT%20982abefc4fb74c8e8d04cfbb34cb8aaa/Big%20Data%200d76ce38949447c09cf11e064b3460f0.html">Big Data</a></td><td class="cell-oVj&lt;">Increasing number of connected devices mean increase in data generation which needs to be stored and processed which is computationally intensive.</td></tr><tr id="8810879e-a98c-4092-9835-10d94a56c264"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Challenges%20for%20IoT%20982abefc4fb74c8e8d04cfbb34cb8aaa/Inter-Operability%208810879ea98c4092983510d94a56c264.html">Inter-Operability</a></td><td class="cell-oVj&lt;">With multiple players providing IoT services and products there is a need for inter-operability between many standards.</td></tr></tbody></table></div></details></li></ul><ul id="5e37b6a0-4b68-40c7-b3e6-20d12f834c70" class="toggle"><li><details open=""><summary>Drivers behind the new network architectures</summary><div id="5fee301f-e747-40c7-8d16-51647b3920ae" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Description</th></tr></thead><tbody><tr id="196f82ed-9a29-4e70-be9e-c44acc0ade7f"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%20Database%205fee301fe74740c78d1651647b3920ae/Scale%20196f82ed9a294e70be9ec44acc0ade7f.html">Scale</a></td><td class="cell-.FDV">ipv4 to ipv6 transition because ipv4 is exhausted</td></tr><tr id="90a17c1c-f5c5-4b3f-8313-b5f5e2bb1357"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%20Database%205fee301fe74740c78d1651647b3920ae/Security%2090a17c1cf5c54b3f8313b5f5e2bb1357.html">Security</a></td><td class="cell-.FDV">Need for zero touch deployment method.</td></tr><tr id="b31c2204-85de-4f77-90b0-a164b491505f"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%20Database%205fee301fe74740c78d1651647b3920ae/Power%20limitations%20b31c220485de4f7790b0a164b491505f.html">Power limitations</a></td><td class="cell-.FDV">Because most IoT devices are battery powered, efficiency is vital.</td></tr><tr id="1ed0076e-55b1-4000-b31d-91d89009c049"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%20Database%205fee301fe74740c78d1651647b3920ae/Data%20volume%201ed0076e55b14000b31d91d89009c049.html">Data volume</a></td><td class="cell-.FDV">Large amounts of data need to be distributed through the IoT network.</td></tr><tr id="1a19cb28-d891-40df-932e-232268c97553"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%20Database%205fee301fe74740c78d1651647b3920ae/Legacy%20devices%201a19cb28d89140df932e232268c97553.html">Legacy devices</a></td><td class="cell-.FDV">Hardware transformations take several years making it necessary to support devices for many years.</td></tr><tr id="1261f671-8cbc-470b-b359-596938008a21"><td class="cell-title"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%20Database%205fee301fe74740c78d1651647b3920ae/Real%20time%20data%20analysis%201261f6718cbc470bb359596938008a21.html">Real time data analysis</a></td><td class="cell-.FDV">The data analysis must be as close to the node as possible. Making it challenging and expensive.</td></tr></tbody></table></div><p id="1e329195-ac8c-4a43-8a6c-def12eca91d1" class="">
+</p></details></li></ul><ul id="c855d8c6-531d-40eb-9f4f-0a1d11ab94ab" class="toggle"><li><details open=""><summary>Comparing IoT architectures</summary></details></li></ul><ul id="d876b01c-d801-4ec8-adcb-2b421caf3cf8" class="toggle"><li><details open=""><summary>Simplified IoT architecture</summary><figure id="4abefd29-7a66-4b25-85c9-0819a8de4695" class="image"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled.png"><img style="width:1349px" src="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled.png"/></a></figure><figure id="229661b1-a485-4a56-982b-ef14969071e9" class="image"><a href="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%201.png"><img style="width:1402px" src="MODULE%201%20e64a21a2d6e740b9af73cc2c5981e37a/Untitled%201.png"/></a></figure><p id="4f376b88-a033-454c-953d-06e8ecc11e8a" class="">
+</p></details></li></ul><ul id="7f41f5e0-fed9-41e6-95c0-f5688b783722" class="toggle"><li><details open=""><summary>The core IoT functional stack</summary></details></li></ul><ul id="f241e0bb-7151-40a6-8d4a-85d0d0ec7a51" class="toggle"><li><details open=""><summary>IoT data management and compute stack</summary></details></li></ul></div></article></body></html>
